@@ -19,8 +19,11 @@ jobs:
           - 'swift:latest'
     container:
       image: ${{ matrix.image }}
-    env:   
+    env:
       CONTROL_DB_URL: "postgresql://fake:fake@localhost:5432/fake"
+      SUPABASE_MANAGEMENT_API_KEY: "fake-key"
+      SUPABASE_MGMT_KEY: "fake-key"
+      SUPABASE_ORGANIZATION_ID: "fake-org"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
