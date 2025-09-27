@@ -3,10 +3,10 @@ name: CI
 on:
   push:
     branches:
-    - main
+      - main
     paths:
-    - '**.swift'
-    - '**.yml'
+      - '**.swift'
+      - '**.yml'
   pull_request:
   workflow_dispatch:
 
@@ -19,8 +19,10 @@ jobs:
           - 'swift:latest'
     container:
       image: ${{ matrix.image }}
+    env:   
+      CONTROL_DB_URL: "postgresql://fake:fake@localhost:5432/fake"
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-    - name: Test
-      run: swift test
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Test
+        run: swift test
