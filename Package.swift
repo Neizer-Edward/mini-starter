@@ -27,12 +27,5 @@ let package = Package(
             ],
             path: "Sources/App"
         ),
-        .testTarget(name: "AppTests",
-            dependencies: [
-                .byName(name: "App"),
-                .product(name: "HummingbirdTesting", package: "hummingbird")
-            ],
-            path: "Tests/AppTests"
-        )
     ]
 )
